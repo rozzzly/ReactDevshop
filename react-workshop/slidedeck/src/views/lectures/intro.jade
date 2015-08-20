@@ -1,0 +1,71 @@
+doctype html
+include ../includes/mixins
+- var title = "Introductions"
+
++page(title)
+  section.index-section(data-state="index-slide")
+    +animated-header()
+    h3 Workshop Introductions
+
+  section
+    h1
+      i.fa.fa-github
+    p These slides are up on GitHub!
+    a(href="https://github.com/objectpartners/react-workshop", target="_blank") objectpartners/react-workshop
+
+  section
+    h2 Introductions
+    ul
+      li Mike Kelly
+        a(href="https://twitter.com/mikerkelly", target="_blank")  (@mikerkelly)
+      li Travis Martensen
+        a(href="https://twitter.com/tmartensen", target="_blank")  (@tmartensen)
+          
+  section
+    h2 Workshop Objectives
+    ul
+      li React Vocabulary and Concepts
+      li Flux Components and Flow
+      li Familiarity with Modern JS Tools
+
+  section
+    h1 Topics
+    ul
+      li Project Setup and Build Tools
+      li React Basics
+      li Flux
+      li Routing 
+      li Forms and Validation
+      li Custom Components
+      
+  section
+    h2 Format
+    ul
+      li Lecture
+      li Individual Labs
+      li Review
+      li Repeat
+
+  section
+    h1 The Lab
+
+  section
+    h2 Timesheetz
+    p We will build a fully-functioning React/Flux application together.
+    p It is an application for tracking and updating timesheets. Woot Woot.
+
+  section
+    h2 Teammates
+    ul
+      li
+        strong Designers
+        | : Will provide styles and page designs.
+      li
+        strong Server Team
+        | : Provide a REST Api and NodeJs application server.
+      li
+        strong Product Owners
+        | : Provide us with requirements along the way.
+      li
+        strong Front End Team
+        | : This is all of us and we are awesome!

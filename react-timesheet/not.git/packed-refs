@@ -1,0 +1,18 @@
+# pack-refs with: peeled fully-peeled 
+fbd60c44ac6e531dadc4e0b3caa070e320f3c4b4 refs/remotes/origin/develop
+f89a90f255aa4bbe852952ac5458cabc0c5cb025 refs/remotes/origin/lab-01-project-setup-solved
+f89a90f255aa4bbe852952ac5458cabc0c5cb025 refs/remotes/origin/lab-01-project-setup-start
+2d19379524e189da384b386e6158e50d5a18e39a refs/remotes/origin/lab-02-first-component-solved
+34f9589b2d720b5b1fb65794e9020cb7c27f46ae refs/remotes/origin/lab-02-first-component-start
+497ac3c5af6882e81108cd28c2a6dd2685dd431c refs/remotes/origin/lab-03-routing-solved
+500549bc557fb87b533c32391eefa7445afa8e97 refs/remotes/origin/lab-03-routing-start
+3b2324761f19fab0c3c5b0b2932acf8eb5eb322c refs/remotes/origin/lab-04-flux-solved
+bf4716d68fc836e53c9e1e52033abde0b0053aa1 refs/remotes/origin/lab-04-flux-start
+5200ffeba15965eb030dd8bebe4aa119616ab9d3 refs/remotes/origin/lab-05-form-validation-solved
+60ee42b5a777a15b25dc7feff3122d0d120bca6f refs/remotes/origin/lab-05-form-validation-start
+af632332d9f43ac4cf7e6adff92d1688dd831cbb refs/remotes/origin/lab-06-custom-components-solved
+d293c983f88800e19eef1f1433c930ae6f5fe5c5 refs/remotes/origin/lab-06-custom-components-start
+7c48560e72ef0408d1242153c1460e52e5652b77 refs/remotes/origin/master
+bfadcf482bc14211989705538e5b4dbd1e10b19a refs/remotes/origin/webpack
+f0c8a54b630a580e5db980068f060b929cfcba6b refs/tags/solved-labs-0.0.1
+^74ffac826f512b87a257027befdddbeb4ef4a299

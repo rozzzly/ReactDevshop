@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Lecture 04 - Flux</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Lecture 04 - Flux">
+    <link href="/react-workshop/assets/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/react-workshop/assets/css/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+      
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-state="index-slide" class="index-section">
+          <div class="sliding-image-container"><img src="/react-workshop/assets/img/react-logo.png" class="animate-logos image1"><img src="/react-workshop/assets/img/flux-logo.png" class="animate-logos image2"><img src="/react-workshop/assets/img/gulp-logo.png" class="animate-logos image3"><img src="/react-workshop/assets/img/browserify-logo.png" class="animate-logos image4"><img src="/react-workshop/assets/img/bower-logo.png" class="animate-logos image5"></div>
+          <div class="fading-header-container">
+            <h1 class="plain animate-headers image1">React</h1>
+            <h1 class="plain animate-headers image2">Flux</h1>
+            <h1 class="plain animate-headers image3">Gulp</h1>
+            <h1 class="plain animate-headers image4">Browserify</h1>
+            <h1 class="plain animate-headers image5">Bower.js</h1>
+          </div>
+          <h3 class="plain">Flux</h3>
+          <h4 class="plain">Lecture 04</h4>
+        </section>
+        <section>
+          <h1>Flux</h1>
+        </section>
+        <section>
+          <h3 class="lower">Three major parts</h3>
+          <ul>
+            <li>the dispatcher</li>
+            <li>the stores</li>
+            <li>the views (React components)</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Not MVC</li>
+            <li>Controllers do exist in a Flux application, but they are controller-views</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Controller Components</h3>
+          <ul>
+            <li>Views at the top of the hierarchy that retrieve data from the stores</li>
+            <li>These views pass data down to their children</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Action creators</h3>
+          <ul>
+            <li>Dispatcher helper methods</li>
+            <li>Support a semantic API that describes all changes that are possible in the application</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Unidirectional data flow</li>
+            <li>When a user interacts with a React view, the view propagates an action</li>
+            <li>The stores react and fire an event</li>
+            <li>All interested other views update accordingly</li>
+          </ul>
+        </section>
+        <section><img src="/react-workshop/assets/img/lecture-04/flux.diagram.png"></section>
+        <section>
+          <h2>Dispatcher</h2>
+        </section>
+        <section>
+          <ul>
+            <li>Singleton</li>
+            <li>Central hub of data flow in a Flux application</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Essentially a registry of callbacks</li>
+            <li>Can invoke these callbacks in order</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Each store registers a callback with the dispatcher</li>
+            <li>When new data comes into the dispatcher, it then uses these callbacks to propagate that data to all of the stores</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Initiated through the dispatch() method</li>
+            <li>Takes a data payload object as its sole argument</li>
+            <li>This payload is typically synonymous with an action</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="lower">dispatch()</h3>
+          <ul>
+            <li>Provides a simple, synchronous iteration through the callbacks</li>
+          </ul>
+        </section>
+        <section>
+          <pre><code class="javascript" data-trim>
+var dispatcher = _.extend(new Dispatcher(), {
+  handleViewAction: function(action) {
+    this.dispatch({
+      source: 'VIEW_ACTION',
+      action: action
+    });
+  }
+});
+
+</code>
+</pre>
+        </section>
+        <section>
+          <h2>Actions</h2>
+        </section>
+        <section>
+          <ul>
+            <li>Used to update data via user interaction or other changes in the UI</li>
+            <li>Data is packaged into an action
+              <ul>
+                <li>Object literal containing the new fields of data</li>
+                <li>Specific action type</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Identified by a type attribute</li>
+            <li>Stores typically use this attribute to determine if and how they should respond to it</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Stores and views control themselves</li>
+            <li>They are not acted upon by external objects</li>
+            <li>Actions flow into the stores through the callbacks they define and register</li>
+          </ul>
+        </section>
+        <section>
+          <pre><code class="javascript" data-trim>
+list: function (query) {
+  dispatcher.handleViewAction({
+    actionType: 'list',
+    query: query
+  });
+}
+
+</code>
+</pre>
+        </section>
+        <section>
+          <h2>Stores</h2>
+        </section>
+        <section>
+          <ul>
+            <li>Contain the application state and logic</li>
+            <li>Somewhat similar to a model in a traditional MVC</li>
+            <li>They manage the state of many objects</li>
+            <li>They do not represent a single record of data like ORM models do</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Registers itself with the dispatcher and provides it with a callback</li>
+            <li>The callback receives the action as a parameter</li>
+            <li>The dispatcher interprets the action and provides the proper hooks into the store's internal methods</li>
+            <li>This allows an action to result in an update to the state of the store, via the dispatcher</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>After the stores are updated, they broadcast an event and declare that their state has changed</li>
+            <li>Views query the new state and update themselves</li>
+          </ul>
+        </section>
+        <section>
+          <p>Let's look at the base Store that others extend</p>
+        </section>
+        <section>
+          <pre><code class="javascript" data-trim>
+// The initialize function of an extended Store
+initialize: function () {
+  var events = {};
+  events['list']    = this.list;
+  events['get']     = this.get;
+  events['update']  = this.update;
+  this.register(events);
+  return this;
+}
+
+</code>
+</pre>
+        </section>
+        <section>
+          <pre><code class="javascript" data-trim>
+register: function (events) {
+  var self = this;
+
+  // calling the dispatcher's register method
+  dispatcher.register(function (payload) {
+    var action = payload.action;
+    var promise = events[action.actionType];
+
+    if (!_.isUndefined(promise)) {
+      promise.apply(self, [payload])
+        .then(function () {
+          self.emitChange();
+        });
+    }
+    return true;
+  });
+}
+
+</code>
+</pre>
+        </section>
+        <section>
+          <ul>
+            <li>Notice that the callback is expecting the Store's method to return a promise so that it knows how to emit a change</li>
+          </ul>
+        </section>
+        <section>
+          <h2>axios</h2>
+          <ul>
+            <li>Cool library to simplify HTTP calls</li>
+            <li><a href="https://github.com/mzabriskie/axios">API on Github</a></li>
+          </ul>
+        </section>
+        <section>
+          <h1>Lab 04</h1>
+          <h2>Adding Flux to Timesheetz</h2>
+        </section>
+      </div>
+    </div>
+    <script src="/react-workshop/assets/js/app.js"></script>
+  </body>
+</html>

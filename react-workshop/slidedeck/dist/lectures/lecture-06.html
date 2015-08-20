@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Lecture 06 - Custom Components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Lecture 06 - Custom Components">
+    <link href="/react-workshop/assets/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/react-workshop/assets/css/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+      
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-state="index-slide" class="index-section">
+          <div class="sliding-image-container"><img src="/react-workshop/assets/img/react-logo.png" class="animate-logos image1"><img src="/react-workshop/assets/img/flux-logo.png" class="animate-logos image2"><img src="/react-workshop/assets/img/gulp-logo.png" class="animate-logos image3"><img src="/react-workshop/assets/img/browserify-logo.png" class="animate-logos image4"><img src="/react-workshop/assets/img/bower-logo.png" class="animate-logos image5"></div>
+          <div class="fading-header-container">
+            <h1 class="plain animate-headers image1">React</h1>
+            <h1 class="plain animate-headers image2">Flux</h1>
+            <h1 class="plain animate-headers image3">Gulp</h1>
+            <h1 class="plain animate-headers image4">Browserify</h1>
+            <h1 class="plain animate-headers image5">Bower.js</h1>
+          </div>
+          <h3 class="plain">Custom Components</h3>
+          <h4 class="plain">Lecture 06</h4>
+        </section>
+        <section>
+          <h1>Custom Components</h1>
+        </section>
+        <section>
+          <h2>axios interceptors</h2>
+        </section>
+        <section>
+          <p>You can actually intercept requests before they are made!</p>
+        </section>
+        <section>
+          <pre><code class="javascript" data-trim>
+axios.interceptors.request.use(
+  // successful request
+  function (config) {
+    // Do something with the request config
+    return config;
+  },
+  // errored request
+  function (err) {
+    // recover from the error?
+    return Promise.reject(err);
+  }
+);
+axios.interceptors.response.use(
+  // successful response
+  function (response) {
+    // manipulate your response before
+    // sending it to the store
+    return response;
+  },
+  // errored response
+  function (err) {
+    // attempt to recover from the error
+    return Promise.reject(err);
+  }
+);
+</code>
+</pre>
+        </section>
+        <section>
+          <h2>NProgress</h2>
+          <p><a href="http://ricostacruz.com/nprogress/">Website</a></p>
+        </section>
+        <section>
+          <h3>API</h3>
+          <ul>
+            <li>start() : start the progress bar</li>
+            <li>done() : show the progress completed</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Lab 6</h1>
+          <h2>External Libraries and Custom Components</h2>
+        </section>
+      </div>
+    </div>
+    <script src="/react-workshop/assets/js/app.js"></script>
+  </body>
+</html>

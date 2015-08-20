@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled 
+ec48b660429a9bc19a816d25479b1b572bd40547 refs/remotes/origin/feature/lecture-1-fixes
+786eb8fc70ed2cd82879324688a32c9e5a17ea23 refs/remotes/origin/feature/lecture-2-fixes
+2b8dfad239e9ca595d847ebb5c0744df3950051a refs/remotes/origin/feature/lecture-3-fixes
+d2945bc4ad66d3a60835ec169bc61ca7d1a7d60d refs/remotes/origin/gh-pages
+56095b40cbf1c06a29d3e0465b5d73f77d89087c refs/remotes/origin/master
