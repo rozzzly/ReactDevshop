@@ -5,27 +5,27 @@ var TimesheetTable = require('./timesheet.table');
 
 var Timesheets = React.createClass({
 
-  mixins: [
-    Router.Navigation
-  ],
+	mixins: [
+		Router.Navigation
+	],
 
-  getInitialState: function () {
-    return {
-      pageConfig: {
-        data: require('../../../../api/data/user.timesheets.json').timesheets
-      }
-    };
-  },
+	getInitialState: function() {
+		return {
+			pageConfig: {
+				data: require('../../../../api/data/user.timesheets.json').timesheets
+			}
+		};
+	},
 
-  render: function () {
-    return (
-      <div>
-        <div className="row">
-          <TimesheetTable timesheets={this.state.pageConfig.data} />
-        </div>
-      </div>
-    );
-  }
+	render: function() {
+		return (
+			<div>
+				<div className="row">
+					<TimesheetTable timesheets={this.state.pageConfig.data}/>
+				</div>
+			</div>
+		);
+	}
 });
 
 module.exports = Timesheets;

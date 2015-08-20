@@ -13,12 +13,11 @@ var Timesheets = require('./components/timesheets/timesheets');
 
 // Initialize the routes
 module.exports = (
-  <Route name='app' path="/" handler={App}>
-
-    <Route name='projects'   path='/projects'  handler={Projects} />
-    <Route name='employees'  path='/employees' handler={Employees} />
-    <Route name='timesheets' path='/employees/:user_id/timesheets' handler={Timesheets} />
-    
-    <Redirect to="employees" />
-  </Route>
+	<Route name='app' path="/" handler={ App }>
+		<Route name='projects' path='/projects' handler={ Projects }/>
+		<Route name='employees' path='/employees' handler={ Employees }/>
+		<Route name='timesheets' path='/employees/:user_id/timesheets' handler={ Timesheets }/>
+		{ /* catchall cascades down to employees (listing) */ }
+		<Redirect to="employees"/>
+	</Route>
 );

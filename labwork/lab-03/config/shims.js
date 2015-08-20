@@ -1,5 +1,5 @@
 module.exports = {
-  tether: {
-    exports: "Tether"
-  }
+	tether: {
+		exports: "Tether"
+	}
 };

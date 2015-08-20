@@ -1,34 +1,34 @@
 var proxyquire = require('proxyquireify')(require);
-var mockComponent  = require('./mock');
+var mockComponent = require('./mock');
 
-describe('App: ', function () {
+describe('App: ', function() {
 
-  var App,
-    element,
-    spies = {},
-    proxies;
+	var App,
+	    element,
+	    spies = {},
+	    proxies;
 
-  var React, TestUtils;
+	var React, TestUtils;
 
-  beforeEach(function () {
-    React = require('react/addons');
-    TestUtils = React.addons.TestUtils;
-  });
+	beforeEach(function() {
+		React = require('react/addons');
+		TestUtils = React.addons.TestUtils;
+	});
 
-  beforeEach(function () {
-    proxies = {
-      './common/navigation/navbar': mockComponent('Navbar'),
-      './common/section': mockComponent('SectionHeader'),
-      'react-router': {
-        RouteHandler: mockComponent('RouteHandler')
-      }
-    };
+	beforeEach(function() {
+		proxies = {
+			'./common/navigation/navbar': mockComponent('Navbar'),
+			'./common/section': mockComponent('SectionHeader'),
+			'react-router': {
+				RouteHandler: mockComponent('RouteHandler')
+			}
+		};
 
-    App = proxyquire('./app', proxies);
-    element = TestUtils.renderIntoDocument(<App />);
-  });
+		App = proxyquire('./app', proxies);
+		element = TestUtils.renderIntoDocument(<App />);
+	});
 
-  it('should instantiate the App', function () {
-    expect(TestUtils.isCompositeComponent(element)).to.be.true;
-  });
+	it('should instantiate the App', function() {
+		expect(TestUtils.isCompositeComponent(element)).to.be.true;
+	});
 });

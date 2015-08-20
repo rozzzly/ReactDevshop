@@ -5,28 +5,28 @@ var ProjectTable = require('./project.table');
 
 var Projects = React.createClass({
 
-  mixins: [
-    Router.Navigation
-  ],
+	mixins: [
+		Router.Navigation
+	],
 
-  getInitialState: function () {
-    return {
-      pageConfig: {
-        data: require('../../../../api/data/projects.json').projects
-      }
-    };
-  },
+	getInitialState: function() {
+		return {
+			pageConfig: {
+				data: require('../../../../api/data/projects.json').projects
+			}
+		};
+	},
 
-  render: function () {
+	render: function() {
 
-    return (
-      <div>
-        <div className="row">
-          <ProjectTable projects={this.state.pageConfig.data}/>
-        </div>
-      </div>
-    );
-  }
+		return (
+			<div>
+				<div className="row">
+					<ProjectTable projects={this.state.pageConfig.data}/>
+				</div>
+			</div>
+		);
+	}
 });
 
 module.exports = Projects;
