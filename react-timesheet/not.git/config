@@ -15,3 +15,6 @@
 [branch "lab-03-routing-solved"]
 	remote = origin
 	merge = refs/heads/lab-03-routing-solved
+[branch "lab-05-form-validation-start"]
+	remote = origin
+	merge = refs/heads/lab-05-form-validation-start
