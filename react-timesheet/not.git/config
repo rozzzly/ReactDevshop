@@ -12,3 +12,6 @@
 [branch "lab-01-project-setup-start"]
 	remote = origin
 	merge = refs/heads/lab-01-project-setup-start
+[branch "lab-03-routing-solved"]
+	remote = origin
+	merge = refs/heads/lab-03-routing-solved

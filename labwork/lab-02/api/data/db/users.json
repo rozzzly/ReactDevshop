@@ -1,0 +1,4 @@
+{"username":"user","email":"user@mixtape.com","password":"password","admin":false,"firstName":"Normal","lastName":"User","_id":"P3aZUHmbOuJEL2Fo"}
+{"username":"admin","email":"admin@mixtape.com","password":"password","admin":true,"firstName":"Admin","lastName":"User","_id":"RKbe3xSegJwuV7cg"}
+{"$$indexCreated":{"fieldName":"username","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"email","unique":true,"sparse":false}}
